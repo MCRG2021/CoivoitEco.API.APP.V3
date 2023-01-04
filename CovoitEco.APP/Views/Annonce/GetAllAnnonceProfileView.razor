@@ -1,0 +1,34 @@
+﻿@inherits CovoitEco.APP.Components.Annonce.AnnonceComponent
+
+
+@if (responseAnnonce  == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Date de publication</th>
+            <th scope="col">Localité de départ</th>
+            <th scope="col">Localité d'arrivé</th>
+            <th scope="col">Statut</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var annonceProfile in responseAnnonce.Lists )
+        {
+            <tr>
+                <td>@annonceProfile.ANNPR_DatePublication</td>
+                <td>@annonceProfile.ANNPR_LocaliteDepart</td>
+                <td>@annonceProfile.ANNPR_LocaliteArrive</td>
+                <td>@annonceProfile.ANNPR_Statut</td>
+                <td class="align-middle">
+                    <button class="btn btn-warning"><a @onclick="@(() => UpdateIdAnnonce(annonceProfile.ANNPR_Id))" href="/GestionAnnonce">Administrer</a></button> @*to do (type get)*@
+                </td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}

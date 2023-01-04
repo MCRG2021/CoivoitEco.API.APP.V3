@@ -1,0 +1,17 @@
+﻿@inherits CovoitEco.APP.Components.Vehicule.VehiculeComponent
+
+@if (responseGetVehicule  == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div>
+        <h3>Vehicule courant</h3>
+        <p>Immatriculation : @responseGetVehicule.Lists[0].VEHPR_Immatriculation</p>
+        <p>Marques: @responseGetVehicule.Lists[0].VEHPR_Marque</p>
+        <p>Modèle : @responseGetVehicule.Lists[0].VEHPR_Modele</p>
+        <p>Nombre de place : @responseGetVehicule.Lists[0].VEHPR_NombrePlace</p>
+        <p>Norme Euro : @responseGetVehicule.Lists[0].VEHPR_NormeEuro</p>
+    </div>
+}
